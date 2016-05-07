@@ -32,7 +32,7 @@ else
 		crit=$(awk "BEGIN {printf \%.0f\n\", $TOTAL_MEMORY*($c/100)}")
 		warn=$(awk "BEGIN {printf \%.0f\n\", $TOTAL_MEMORY*($w/100)}")
 		if [ $USED_MEMORY -ge $crit ]; then
-			datetime=$(date +%Y%m%d" "%H:%M)
+			datetime=$(date +%Y%m%d" "%H\:%M)
 			subj=' memory check - critical'
 			subject=$datetime$subj
 			message=$( ps aux --sort=-%mem | awk 'NR<=10{print $0}' )
