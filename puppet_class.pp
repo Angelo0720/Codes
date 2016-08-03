@@ -15,7 +15,7 @@ class puppet_class {
   }
   
   exec{ 'retrieve_file':
-    command => "/usr/bin/wget -q https://raw.githubusercontent.com/Angelo0720/Codes/master/memory_check.sh,
+    command => "/usr/bin/wget -q https://raw.githubusercontent.com/Angelo0720/Codes/master/memory_check.sh",
     creates => "/home/monitor/scripts/memory_check",
   }
   
