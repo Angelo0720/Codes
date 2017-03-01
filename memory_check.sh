@@ -21,7 +21,7 @@ while getopts ":c:w:e:" opt; do
 done
 shift $((OPTIND-1))
 
-if [-z "${c}" ] || [-z "${w}" ] || [-z "${e}" ]; then
+if [ -z "${c}" ] || [ -z "${w}" ] || [ -z "${e}" ]; then
 	echo "This script needs parameters">&2
 	usage
 else
@@ -29,8 +29,8 @@ else
 		echo " Critical Threshold must be greater than Warning Threshold">&2
 		usage
 	else
-		crit=$(awk "BEGIN {printf \%.0f\n\", $TOTAL_MEMORY*($c/100)}")
-		warn=$(awk "BEGIN {printf \%.0f\n\", $TOTAL_MEMORY*($w/100)}")
+		crit=$(awk "BEGIN {printf \"%.0f\n\", $TOTAL_MEMORY*($c/100)}")
+		warn=$(awk "BEGIN {printf \"%.0f\n\", $TOTAL_MEMORY*($w/100)}")
 		if [ $USED_MEMORY -ge $crit ]; then
 			datetime=$(date +%Y%m%d" "%H\:%M)
 			subj=' memory check - critical'
